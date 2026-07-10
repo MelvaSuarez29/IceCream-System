@@ -4,5 +4,6 @@ module com.proyecto.proyecto_final {
 
 
     opens com.proyecto.proyecto_final to javafx.fxml;
+    opens com.proyecto.proyecto_final.controllers to javafx.fxml;
     exports com.proyecto.proyecto_final;
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="15" xmlns:fx="http://javafx.com/fxml" fx:controller="com.proyecto.proyecto_final.controllers.LoginController">
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30"/>
+    </padding>
+
+    <Text text="Heladería" style="-fx-font-size: 28px; -fx-font-weight: bold;">
+        <font>
+            <Font name="System Bold" size="28"/>
+        </font>
+    </Text>
+    <Text text="Inicio de Sesión" style="-fx-font-size: 16px; -fx-fill: #666;"/>
+
+    <VBox spacing="8" VBox.vgrow="NEVER">
+        <Label text="Email:"/>
+        <TextField fx:id="emailField" promptText="correo@ejemplo.com" HBox.hgrow="ALWAYS"/>
+    </VBox>
+
+    <VBox spacing="8" VBox.vgrow="NEVER">
+        <Label text="Contraseña:"/>
+        <PasswordField fx:id="passwordField" promptText="••••••••"/>
+    </VBox>
+
+    <Label fx:id="errorLabel" text="Error" style="-fx-text-fill: red; -fx-font-size: 12px;" managed="false"/>
+
+    <Button fx:id="loginButton" text="Iniciar Sesión" maxWidth="Infinity" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;">
+        <VBox.margin>
+            <Insets top="10"/>
+        </VBox.margin>
+    </Button>
+
+    <Button fx:id="registerButton" text="Registrarse como Vendedor" maxWidth="Infinity" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px;"/>
+</VBox>

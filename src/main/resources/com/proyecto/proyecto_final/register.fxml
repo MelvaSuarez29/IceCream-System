@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="12" xmlns:fx="http://javafx.com/fxml" fx:controller="com.proyecto.proyecto_final.controllers.RegisterController">
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30"/>
+    </padding>
+
+    <Text text="Registro de Vendedor" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="6">
+        <Label text="Nombre Completo:"/>
+        <TextField fx:id="nombreField" promptText="Juan Pérez"/>
+    </VBox>
+
+    <VBox spacing="6">
+        <Label text="Email:"/>
+        <TextField fx:id="emailField" promptText="correo@ejemplo.com"/>
+    </VBox>
+
+    <VBox spacing="6">
+        <Label text="Contraseña:"/>
+        <PasswordField fx:id="passwordField" promptText="Mínimo 6 caracteres"/>
+    </VBox>
+
+    <VBox spacing="6">
+        <Label text="Confirmar Contraseña:"/>
+        <PasswordField fx:id="confirmPasswordField" promptText="Repita la contraseña"/>
+    </VBox>
+
+    <Label fx:id="errorLabel" text="Error" style="-fx-text-fill: red; -fx-font-size: 12px;" managed="false"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="registerButton" text="Registrarse" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;"/>
+        <Button fx:id="cancelButton" text="Cancelar" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 14px;"/>
+    </HBox>
+</VBox>
