@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="12" style="-fx-background-image: url(&quot;file:/C:/Users/USUARIO/Downloads/Proyectos/heladeria_test/src/main/resources/com/heladeria/img/img-5.jpg&quot;); -fx-background-position: center; -fx-background-size: cover;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="com.heladeria.controllers.FacturaFormController">
+    <padding>
+        <Insets bottom="15" left="15" right="15" top="15" />
+    </padding>
+
+    <Text fill="#fcfcfc" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Formulario de Factura" />
+
+    <VBox spacing="8" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 10; -fx-background-color: rgba(255, 255, 255, 0.7);">
+        <Text style="-fx-font-weight: bold;" text="Datos del Cliente" />
+        <CheckBox fx:id="nuevoClienteCheck" text="Cliente nuevo" />
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="Cliente existente:">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
+            <ComboBox fx:id="clienteCombo" prefWidth="300" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="Nombre nuevo cliente:" />
+            <TextField fx:id="clienteNombreField" disable="true" prefWidth="300" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="8" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 10; -fx-background-color: rgba(255, 255, 255, 0.7);">
+        <Text style="-fx-font-weight: bold;" text="Agregar Detalle" />
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="Sabor:" />
+            <ComboBox fx:id="saborCombo" prefWidth="200" />
+            <Label text="Cantidad:" />
+            <TextField fx:id="cantidadField" prefWidth="80" />
+            <Button fx:id="addDetalleBtn" text="Agregar" />
+        </HBox>
+    </VBox>
+
+    <Text fill="WHITE" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Detalle de la Factura" />
+
+    <TableView fx:id="detalleTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colSabor" prefWidth="200" text="Sabor" />
+            <TableColumn fx:id="colCantidad" prefWidth="100" text="Cantidad" />
+            <TableColumn fx:id="colSubtotal" prefWidth="150" text="Subtotal" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" style="-fx-background-color: rgba(255, 255, 255, 0.3);">
+        <Button fx:id="removeDetalleBtn" text="Eliminar Detalle Seleccionado" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Text style="-fx-font-size: 16px;" text="Total: $" />
+        <Label fx:id="totalLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="0.00" />
+    </HBox>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button fx:id="saveButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;" text="Guardar Factura" />
+        <Button fx:id="cancelButton" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 14px;" text="Cancelar" />
+    </HBox>
+</VBox>
