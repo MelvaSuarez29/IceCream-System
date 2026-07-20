@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.heladeria.controllers.VendedorController">
+    <padding>
+        <Insets bottom="15" left="15" right="15" top="15"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Text text="Panel de Vendedor" style="-fx-font-size: 22px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="logoutButton" text="Cerrar Sesión" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
+        <VBox spacing="10">
+            <Text text="Sabores Disponibles" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <TableView fx:id="saboresTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colSaborNombre" text="Nombre" prefWidth="120"/>
+                    <TableColumn fx:id="colSaborPrecio" text="Precio" prefWidth="80"/>
+                    <TableColumn fx:id="colSaborStock" text="Stock" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox spacing="10">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Text text="Mis Notas de Venta" style="-fx-font-size: 14px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="createFacturaBtn" text="Crear Nota de Venta" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            </HBox>
+
+            <TableView fx:id="facturasTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colFactFecha" text="Fecha" prefWidth="140"/>
+                    <TableColumn fx:id="colFactCliente" text="Cliente" prefWidth="120"/>
+                    <TableColumn fx:id="colFactTotal" text="Total" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <Label fx:id="clienteInfoLabel" text="" style="-fx-font-style: italic;"/>
+
+            <TableView fx:id="detalleTable" prefHeight="150">
+                <columns>
+                    <TableColumn fx:id="colDetSabor" text="Sabor" prefWidth="100"/>
+                    <TableColumn fx:id="colDetCantidad" text="Cant." prefWidth="60"/>
+                    <TableColumn fx:id="colDetSubtotal" text="Subtotal" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <Button fx:id="editFacturaBtn" text="Editar Nota de Venta"/>
+                <Button fx:id="deleteFacturaBtn" text="Anular Nota de Venta" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox>

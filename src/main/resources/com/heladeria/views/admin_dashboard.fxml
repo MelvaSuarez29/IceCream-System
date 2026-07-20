@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.heladeria.controllers.AdminController">
+    <padding>
+        <Insets bottom="15" left="15" right="15" top="15"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Text text="Panel de Administración" style="-fx-font-size: 22px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="logoutButton" text="Cerrar Sesión" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
+        <Tab text="Gestión de Sabores" closable="false">
+            <VBox spacing="10">
+                <padding><Insets top="10" bottom="10" left="10" right="10"/></padding>
+                <TableView fx:id="saboresTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colSaborNombre" text="Nombre" prefWidth="150"/>
+                        <TableColumn fx:id="colSaborDesc" text="Descripción" prefWidth="200"/>
+                        <TableColumn fx:id="colSaborPrecio" text="Precio" prefWidth="100"/>
+                        <TableColumn fx:id="colSaborStock" text="Stock" prefWidth="80"/>
+                        <TableColumn fx:id="colSaborActivo" text="Activo" prefWidth="80"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button fx:id="addSaborBtn" text="Agregar Sabor"/>
+                    <Button fx:id="editSaborBtn" text="Editar Sabor"/>
+                    <Button fx:id="toggleSaborBtn" text="Activar/Desactivar"/>
+                    <Button fx:id="deleteSaborBtn" text="Eliminar Sabor"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <Tab text="Gestión de Stock" closable="false">
+            <VBox spacing="10">
+                <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colStockNombre" text="Nombre" prefWidth="200"/>
+                        <TableColumn fx:id="colStockActual" text="Stock Actual" prefWidth="150"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Nuevo stock:"/>
+                    <TextField fx:id="stockCantidadField" promptText="Cantidad" prefWidth="150"/>
+                    <Button fx:id="updateStockBtn" text="Actualizar Stock"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <Tab text="Gestión de Vendedores" closable="false">
+            <VBox spacing="10">
+                <padding><Insets top="10" bottom="10" left="10" right="10"/></padding>
+                <TableView fx:id="vendedoresTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colVendNombre" text="Nombre" prefWidth="200"/>
+                        <TableColumn fx:id="colVendEmail" text="Email" prefWidth="250"/>
+                        <TableColumn fx:id="colVendActivo" text="Estado" prefWidth="100"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button fx:id="toggleVendedorBtn" text="Deshabilitar/Habilitar"/>
+                    <Button fx:id="deleteVendedorBtn" text="Eliminar Vendedor"/>
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

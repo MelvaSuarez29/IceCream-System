@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.heladeria.controllers.ClienteController">
+    <padding>
+        <Insets bottom="15" left="15" right="15" top="15"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="welcomeLabel" text="Bienvenido" style="-fx-font-size: 18px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="logoutButton" text="Cerrar Sesión" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Text text="Mis Notas de Venta" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="facturasTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colFactFecha" text="Fecha" prefWidth="200"/>
+            <TableColumn fx:id="colFactTotal" text="Total" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <Text text="Detalle de Nota de Venta" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="detalleTable" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colDetSabor" text="Sabor" prefWidth="200"/>
+            <TableColumn fx:id="colDetCantidad" text="Cantidad" prefWidth="100"/>
+            <TableColumn fx:id="colDetSubtotal" text="Subtotal" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Button fx:id="descargarBtn" text="Descargar Nota" disable="true" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>
