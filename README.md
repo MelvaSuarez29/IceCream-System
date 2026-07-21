@@ -324,55 +324,157 @@ Puedes agregar aquí imágenes como:
 - Historial del Cliente.
 
 ---
+# 📋 Pasos para poner en marcha
 
-# 🤝 Contribuciones
-
-Si deseas contribuir al proyecto:
+## 1. Clonar el repositorio y configurar el archivo `.env`
 
 ```bash
-Fork
+git clone https://github.com/tuusuario/IceCream-System.git
+cd IceCream-System
+cp .env.example .env
+```
 
-↓
+Editar el archivo **`.env`** con las credenciales correspondientes de Supabase.
 
-Crear rama
+---
 
-git checkout -b feature/nueva-funcionalidad
+## 2. Crear las tablas en Supabase
 
-↓
+Ejecutar en el editor SQL de Supabase el script de creación de tablas proporcionado anteriormente en este documento.
 
-Realizar cambios
+---
 
-↓
+## 3. Ejecutar la aplicación
 
-Commit
+Con Maven Wrapper:
 
-git commit -m "Nueva funcionalidad"
+```bash
+./mvnw javafx:run
+```
 
-↓
+En Windows:
 
-Push
-
-git push origin feature/nueva-funcionalidad
-
-↓
-
-Crear Pull Request
+```bash
+mvnw.cmd javafx:run
 ```
 
 ---
 
-# 📄 Licencia
+## 4. Iniciar sesión
 
-Este proyecto se distribuye bajo la licencia **MIT**.
+**Email**
+
+```text
+admin@heladeria.com
+```
+
+**Contraseña**
+
+```text
+admin123
+```
+
+> **Importante:** Se recomienda cambiar estas credenciales después del primer inicio del sistema.
 
 ---
 
-# 📧 Contacto
+# 📁 Estructura de paquetes
 
-Si tienes preguntas, sugerencias o deseas reportar errores, puedes abrir un **Issue** en el repositorio del proyecto.
+| Paquete | Descripción |
+|----------|-------------|
+| `com.heladeria` | Clases principales del proyecto (`Launcher`, `MainApp`). |
+| `com.heladeria.config` | Configuración del sistema (`SupabaseConfig` carga las variables del archivo `.env`). |
+| `com.heladeria.controllers` | Controladores JavaFX asociados a cada vista FXML. |
+| `com.heladeria.dao` | Clases DAO encargadas del acceso a datos mediante la API REST de Supabase. |
+| `com.heladeria.models` | Modelos de datos utilizados por la aplicación. |
+| `com.heladeria.utils` | Clases utilitarias como `PasswordUtil`, `SessionManager`, `SetupUtil` y `SupabaseClient`. |
+| `resources/com.heladeria/views` | Archivos FXML de la interfaz gráfica. |
+| `resources/com.heladeria/img` | Imágenes utilizadas por la aplicación. |
 
 ---
 
-# 🍦 IceCream-System
+# 🔧 Personalización
 
-Aplicación desarrollada con JavaFX y Supabase para la administración integral de una heladería, implementando autenticación segura, control por roles, gestión de inventario y ventas mediante una arquitectura moderna basada en servicios REST.
+## Cambiar el usuario administrador inicial
+
+Modificar el método:
+
+```java
+SetupUtil.seedAdmin()
+```
+
+para establecer un nuevo correo electrónico o contraseña del administrador.
+
+---
+
+## Agregar nuevos campos
+
+Para incorporar nuevos atributos al sistema es necesario actualizar:
+
+- Modelos (`models`)
+- Clases DAO
+- Controladores
+- Vistas FXML
+- Script SQL de la base de datos
+
+---
+
+## Personalizar estilos
+
+Actualmente las vistas utilizan estilos CSS embebidos.
+
+Se recomienda mover los estilos a un archivo externo:
+
+```text
+style.css
+```
+
+para facilitar el mantenimiento y reutilización del diseño.
+
+---
+
+# 📦 Dependencias detalladas
+
+```xml
+<dependencies>
+
+    <!-- JavaFX -->
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>21.0.6</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+        <version>21.0.6</version>
+    </dependency>
+
+    <!-- Gson -->
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.11.0</version>
+    </dependency>
+
+    <!-- BCrypt -->
+    <dependency>
+        <groupId>at.favre.lib</groupId>
+        <artifactId>bcrypt</artifactId>
+        <version>0.10.2</version>
+    </dependency>
+
+</dependencies>
+```
+
+---
+
+# 👨‍💻 Autores
+
+Este proyecto fue desarrollado por:
+
+- **Byron Valencia**
+- **Vladimir Pilaguano**
+- **Melva Suárez**
+
