@@ -1,71 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.heladeria.controllers.AdminController">
+<VBox spacing="10" style="-fx-background-image: url(&quot;file:/C:/Users/USUARIO/Downloads/Proyectos/heladeria_test/src/main/resources/com/heladeria/img/img-4.jpg&quot;); -fx-background-position: center; -fx-background-size: cover;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="com.heladeria.controllers.AdminController">
     <padding>
-        <Insets bottom="15" left="15" right="15" top="15"/>
+        <Insets bottom="15" left="15" right="15" top="15" />
     </padding>
 
     <HBox alignment="CENTER_LEFT" spacing="10">
-        <Text text="Panel de Administración" style="-fx-font-size: 22px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
-        <Button fx:id="logoutButton" text="Cerrar Sesión" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        <Text style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Panel de Administración" HBox.hgrow="ALWAYS" />
+        <Button fx:id="logoutButton" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="Cerrar Sesión" />
     </HBox>
 
     <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
-        <Tab text="Gestión de Sabores" closable="false">
+        <Tab closable="false" text="Gestión de Sabores">
             <VBox spacing="10">
-                <padding><Insets top="10" bottom="10" left="10" right="10"/></padding>
+                <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
                 <TableView fx:id="saboresTable" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colSaborNombre" text="Nombre" prefWidth="150"/>
-                        <TableColumn fx:id="colSaborDesc" text="Descripción" prefWidth="200"/>
-                        <TableColumn fx:id="colSaborPrecio" text="Precio" prefWidth="100"/>
-                        <TableColumn fx:id="colSaborStock" text="Stock" prefWidth="80"/>
-                        <TableColumn fx:id="colSaborActivo" text="Activo" prefWidth="80"/>
+                        <TableColumn fx:id="colSaborNombre" prefWidth="150" text="Nombre" />
+                        <TableColumn fx:id="colSaborDesc" prefWidth="200" text="Descripción" />
+                        <TableColumn fx:id="colSaborPrecio" prefWidth="100" text="Precio" />
+                        <TableColumn fx:id="colSaborStock" prefWidth="80" text="Stock" />
+                        <TableColumn fx:id="colSaborActivo" prefWidth="80" text="Activo" />
                     </columns>
                 </TableView>
                 <HBox spacing="10">
-                    <Button fx:id="addSaborBtn" text="Agregar Sabor"/>
-                    <Button fx:id="editSaborBtn" text="Editar Sabor"/>
-                    <Button fx:id="toggleSaborBtn" text="Activar/Desactivar"/>
-                    <Button fx:id="deleteSaborBtn" text="Eliminar Sabor"/>
+                    <Button fx:id="addSaborBtn" text="Agregar Sabor" />
+                    <Button fx:id="editSaborBtn" text="Editar Sabor" textFill="#309406" />
+                    <Button fx:id="toggleSaborBtn" text="Activar/Desactivar" textFill="#f77b06" />
+                    <Button fx:id="deleteSaborBtn" text="Eliminar Sabor" textFill="#f70404">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font></Button>
                 </HBox>
             </VBox>
         </Tab>
 
-        <Tab text="Gestión de Stock" closable="false">
+        <Tab closable="false" text="Gestión de Stock">
             <VBox spacing="10">
                 <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colStockNombre" text="Nombre" prefWidth="200"/>
-                        <TableColumn fx:id="colStockActual" text="Stock Actual" prefWidth="150"/>
+                        <TableColumn fx:id="colStockNombre" prefWidth="200" text="Nombre" />
+                        <TableColumn fx:id="colStockActual" prefWidth="150" text="Stock Actual" />
                     </columns>
                 </TableView>
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <Label text="Nuevo stock:"/>
-                    <TextField fx:id="stockCantidadField" promptText="Cantidad" prefWidth="150"/>
-                    <Button fx:id="updateStockBtn" text="Actualizar Stock"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Nuevo stock:" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold Italic" size="12.0" />
+                  </font></Label>
+                    <TextField fx:id="stockCantidadField" prefWidth="150" promptText="Cantidad" />
+                    <Button fx:id="updateStockBtn" text="Actualizar Stock" textFill="#ec0a0a" />
                 </HBox>
             </VBox>
         </Tab>
 
-        <Tab text="Gestión de Vendedores" closable="false">
+        <Tab closable="false" text="Gestión de Vendedores">
             <VBox spacing="10">
-                <padding><Insets top="10" bottom="10" left="10" right="10"/></padding>
+                <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
                 <TableView fx:id="vendedoresTable" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colVendNombre" text="Nombre" prefWidth="200"/>
-                        <TableColumn fx:id="colVendEmail" text="Email" prefWidth="250"/>
-                        <TableColumn fx:id="colVendActivo" text="Estado" prefWidth="100"/>
+                        <TableColumn fx:id="colVendNombre" prefWidth="200" text="Nombre" />
+                        <TableColumn fx:id="colVendEmail" prefWidth="250" text="Email" />
+                        <TableColumn fx:id="colVendActivo" prefWidth="100" text="Estado" />
                     </columns>
                 </TableView>
                 <HBox spacing="10">
-                    <Button fx:id="toggleVendedorBtn" text="Deshabilitar/Habilitar"/>
-                    <Button fx:id="deleteVendedorBtn" text="Eliminar Vendedor"/>
+                    <Button fx:id="toggleVendedorBtn" text="Deshabilitar/Habilitar" textFill="#d66a0d" />
+                    <Button fx:id="deleteVendedorBtn" text="Eliminar Vendedor" textFill="#ec0606" />
                 </HBox>
             </VBox>
         </Tab>
