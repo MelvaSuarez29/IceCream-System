@@ -76,6 +76,7 @@ public class UsuarioDAO {
 
     public static long countFacturasByCliente(String clienteId) throws Exception {
         String filter = "cliente_id=eq." + URLEncoder.encode(clienteId, StandardCharsets.UTF_8);
+        String json = SupabaseClient.get("/facturas?select=id&" + filter);
         return gson.fromJson(json, JsonArray.class).size();
     }
 
